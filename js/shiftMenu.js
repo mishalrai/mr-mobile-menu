@@ -90,14 +90,14 @@
                     that.addDownArrow();
                     that.toggleSubUl();
                     that.menuToggler();
+                    that.addClassOnFirstUl();
                 });
             };
 
             this.createMenu = function() {
                 var closeHTML = defaultConfig.closeIcon ? this.closeMenuIcon() : null,
                     overlayHTML = defaultConfig.overlay ? this.addOverlay() : null;
-
-                $('body').append('<div class="mr-mobile-menu" id="mr-mobile-menu">' + closeHTML + mobileMenuHTML + '</div>' + overlayHTML)
+                    $('body').append('<div class="mr-mobile-menu" id="mr-mobile-menu">' + closeHTML + mobileMenuHTML + '</div>' + overlayHTML)
             };
 
             this.closeMenuIcon = function() {
@@ -107,6 +107,15 @@
             this.addOverlay = function() {
                 return ('<div class="mr-mobile-menu-overlay"></div>');
             };
+
+            this.addClassOnFirstUl = function(){
+              if($('#mr-mobile-menu ul').first().hasClass('menu')){
+                console.log('has menu class');
+              }else{
+                $('#mr-mobile-menu ul').first().addClass('menu');
+                console.log('this is no any menu class');
+              }
+            }
 
             this.addDownArrow = function() {
                 var $mobileMenu = $('#mr-mobile-menu'),
@@ -118,6 +127,7 @@
                     console.log('added');
                 } else {
                     console.log('no classess');
+                    $('#mr-mobile-menu ul li:has(ul)').children('a').append('<span class="mr-arrow-box"><span class="mr-down-arrow"></span></span>');
                 }
             };
 

@@ -1,7 +1,7 @@
 // mr mobile menu configuration
-$overlay : true;
-$mr_menu_type: shift;   // overlay or shif
-$mr_menu_direction: right;  // left or right
+$overlay : false;
+$mr_menu_type: overlay;   // overlay or shif
+$mr_menu_direction: left;  // left or right
 $mr_menu_animation: all 0.3s ease-in-out;
 $mr_overlay_color: rgba(#000, 0.6);
 $mr_menu_width: 300px;
@@ -11,10 +11,12 @@ $mr_menu_text_color: #fff;
 // sub menu arrow
 $mr_submenu_indicator_arrow_width: 30px;
 $mr_submenu_indicator_arrow_color: #fff;
+$mr_submenu_indicator_arrow_animation: true;
 
 // close button
 $mr_close_button_size: 20px;
 $mr_close_button_position: right;
+$mr_colse_button_animation: true;
 
 //Browser reset
 ul{ margin: 0; padding: 0; }
@@ -171,6 +173,21 @@ body {
     top: 0;
     bottom: 0;
 
+    @if $mr_submenu_indicator_arrow_animation{
+      -webkit-transfrom: scale(0.5);
+      -moz-transfrom: scale(0.5);
+      transform: scale(0.5);
+
+      .mr-menu-open &{
+        -webkit-transfrom: scale(1);
+           -moz-transfrom: scale(1);
+                transform: scale(1);
+       -webkit-transition: all 0.4s ease-in-out 0.2s;
+          -moz-transition: all 0.4s ease-in-out 0.2s;
+              transition: all 0.4s ease-in-out 0.2s;
+      }
+    }
+
     &.open {
         transform: rotate(180deg);
     }
@@ -206,7 +223,7 @@ body {
 
 .mr-close-wrapper {
     text-align: $mr_close_button_position;
-    padding: 10px;
+    padding: 10px 7px;
 
     .mr-inner-box {
         width: $mr_close_button_size;
@@ -214,6 +231,22 @@ body {
         cursor: pointer;
         display: inline-block;
         position: relative;
+
+        @if $mr_colse_button_animation{
+          -webkit-transform: scale(0) rotate(180deg);
+          -moz-transform: scale(0) rotate(180deg);
+           transform: scale(0) rotate(180deg);
+
+          .mr-menu-open &{
+            -webkit-transform: scale(1) rotate(0deg);
+               -moz-transform: scale(1) rotate(0deg);
+                    transform: scale(1) rotate(0deg);
+            -webkit-transition: all 0.4s ease-in-out 0.3s;
+               -moz-transition: all 0.4s ease-in-out 0.3s;
+                   transition: all 0.4s ease-in-out 0.3s;
+          }
+
+        }
 
         .mr-inner{
           display: inline-block;
