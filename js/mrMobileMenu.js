@@ -68,7 +68,7 @@
 
 
 
-    $.fn.shiftMenu = function(config) {
+    $.fn.mrMobileMenu = function(config) {
         /* defining default config*/
         var defaultConfig = {
             icon: '#menu-icon',
