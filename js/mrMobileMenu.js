@@ -34,7 +34,6 @@
         this.toggle = function() {
             var selectors = this.implode(this.animation);
             if (typeof selectors !== 'undefined') {
-                console.log(this.className);
                 $(selectors).toggleClass(this.className);
             }
         }
@@ -110,10 +109,8 @@
 
             this.addClassOnFirstUl = function(){
               if($('#mr-mobile-menu ul').first().hasClass('menu')){
-                console.log('has menu class');
               }else{
                 $('#mr-mobile-menu ul').first().addClass('menu');
-                console.log('this is no any menu class');
               }
             }
 
@@ -124,9 +121,7 @@
 
                 if (haveClassOnLi.length > 0) {
                     $hasSubUl.children('a').append('<span class="mr-arrow-box"><span class="mr-down-arrow"></span></span>');
-                    console.log('added');
                 } else {
-                    console.log('no classess');
                     $('#mr-mobile-menu ul li:has(ul)').children('a').append('<span class="mr-arrow-box"><span class="mr-down-arrow"></span></span>');
                 }
             };
@@ -138,7 +133,6 @@
                     e.stopPropagation();
                     e.preventDefault();
                     $(this).toggleClass('open').parent().next().slideToggle();
-                    console.log('arrow clicked');
                 }
             };
 
