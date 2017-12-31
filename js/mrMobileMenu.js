@@ -22,7 +22,7 @@
             var toggler = this.implode(this.toggler);
             if (typeof toggler !== 'undefined') {
 
-                $(document).on('click touchstart', toggler, function(e) {
+                $(document).on('click', toggler, function(e) {
                     e.stopPropagation();
                     e.preventDefault();
                     that.toggle();
@@ -138,7 +138,7 @@
 
             this.menuToggler = function() {
               var menuConfig = {
-                  animation: ['.mr-mobile-menu-overlay','#mr-mobile-menu', 'body'], //where class add element
+                  animation: ['.mr-mobile-menu-overlay', '#mr-mobile-menu', 'body', '#menu-icon'], //where class add element
                   exceptions: ['#mr-mobile-menu'], //stop propagation
                   toggler: ['#menu-icon', '.mr-mobile-menu-overlay', '#mr-close'],//class toggle on click
                   className:'mr-menu-open'
